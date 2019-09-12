@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eCare - Circuits</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+
+    <link href="~/Content/icomoon/styles.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap_limitless.min.css" rel="stylesheet" />
+    <link href="~/Content/layout.min.css" rel="stylesheet" />
+    <link href="~/Content/components.min.css" rel="stylesheet" />
+    <link href="~/Content/colors.min.css" rel="stylesheet" />
+
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/app.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-expand-md navbar-light" style="padding-bottom:0px;padding-top:0px; padding-right:0px">
+
+        <!-- Header with logos -->
+        <div class="navbar-header navbar-dark d-none d-md-flex align-items-md-center">
+            <div class="navbar-brand navbar-brand-md" style="margin-left: 1.5rem;">
+                <a href="index.html" class="d-inline-block">
+
+                    <img src="~/Images/logo.png" />
+                </a>
+            </div>
+
+            <div class="navbar-brand navbar-brand-xs">
+                <a href="index.html" class="d-inline-block">
+                    <img src="../../../../global_assets/images/logo_icon_light.png" alt="">
+                </a>
+            </div>
+        </div>
+        <!-- /header with logos -->
+        <!-- Mobile controls -->
+        <div class="d-flex flex-1 d-md-none">
+            <div class="navbar-brand mr-auto">
+                <a href="index.html" class="d-inline-block">
+                    <img src="../../../../global_assets/images/logo_dark.png" alt="">
+                </a>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mobile">
+                <i class="icon-tree5"></i>
+            </button>
+
+            <button class="navbar-toggler sidebar-mobile-main-toggle" type="button">
+                <i class="icon-paragraph-justify3"></i>
+            </button>
+        </div>
+        <!-- /mobile controls -->
+
+    </div>
+
+    <div class="page-content">
+        <!-- Main sidebar -->
+        <div class="sidebar sidebar-dark sidebar-main sidebar-expand-md">
+
+            <!-- Sidebar mobile toggler -->
+            <div class="sidebar-mobile-toggler text-center">
+                <a href="#" class="sidebar-mobile-main-toggle">
+                    <i class="icon-arrow-left8"></i>
+                </a>
+                Navigation
+                <a href="#" class="sidebar-mobile-expand">
+                    <i class="icon-screen-full"></i>
+                    <i class="icon-screen-normal"></i>
+                </a>
+            </div>
+            <!-- /sidebar mobile toggler -->
+            <!-- Sidebar content -->
+            <div class="sidebar-content">
+                @{
+                    string CurrentURL = Request.Url.AbsoluteUri;
+                }
+                <!-- User menu -->
+                <div class="sidebar-user">
+                    <div class="card-body">
+                        <div class="media">
+                            <div class="mr-3">
+                                <a href="#"><img src="../../../../global_assets/images/placeholders/placeholder.jpg" width="38" height="38" class="rounded-circle" alt=""></a>
+                            </div>
+
+                            <div class="media-body">
+                                <div class="media-title font-weight-semibold">Guillermo Oramas</div>
+                                <div class="font-size-xs opacity-50">
+                                    <i class="icon-pin font-size-sm"></i> &nbsp;Panama, Panama
+                                </div>
+                            </div>
+
+                            <div class="ml-3 align-self-center">
+                                <a href="#" class="text-white"><i class="icon-cog3"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /user menu -->
+                <!-- Main navigation -->
+                <div class="card card-sidebar-mobile">
+                    <ul class="nav nav-sidebar" data-nav-type="accordion">
+
+                        <!-- Main -->
+                        <li class="nav-item">
+                            @if (CurrentURL.Contains("Services"))
+                            {
+                                <a href="index.html" class="nav-link active">
+                                    <i class="icon-home4"></i>
+                                    <span>
+                                        Dashboard
+                                        <span class="d-block font-weight-normal opacity-50">No active orders</span>
+                                    </span>
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="index.html" class="nav-link">
+                                    <i class="icon-home4"></i>
+                                    <span>
+                                        Dashboard
+                                        <span class="d-block font-weight-normal opacity-50">No active orders</span>
+                                    </span>
+                                </a>
+                            }
+                        </li>
+
+                        @if (CurrentURL.Contains("Quotes"))
+                        {
+                            <li id="QuotesNavItem" class="nav-item nav-item-submenu nav-item-expanded nav-item-open">
+                                <a href="/Quotes/Index" class="nav-link active"><i class="icon-quotes-left"></i> <span>Quotes</span></a>
+
+                                <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                                    <li class="nav-item">
+                                        @if (CurrentURL.Contains("/Quotes/Requested"))
+                                        {
+                                            <a href="/Quotes/Requested" class="nav-link active">Requested</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="/Quotes/Requested" class="nav-link">Requested</a>
+                                        }
+                                    </li>
+                                    <li class="nav-item">
+                                        @if (CurrentURL.Contains("/Quotes/Received"))
+                                        {
+                                            <a href="/Quotes/Received" class="nav-link active">Received</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="/Quotes/Received" class="nav-link">Received</a>
+                                        }
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li id="QuotesNavItem" class="nav-item nav-item-submenu">
+                                <a href="/Quotes/Index" class="nav-link"><i class="icon-quotes-left"></i> <span>Quotes</span></a>
+
+                                <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+
+                                    <li class="nav-item">
+                                        @if (CurrentURL.Contains("/Quotes/Requested"))
+                                        {
+                                            <a href="/Quotes/Requested" class="nav-link active">Requested</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="/Quotes/Requested" class="nav-link">Requested</a>
+                                        }
+                                    </li>
+                                    <li class="nav-item">
+                                        @if (CurrentURL.Contains("/Quotes/Received"))
+                                        {
+                                            <a href="/Quotes/Received" class="nav-link active">Received</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="/Quotes/Received" class="nav-link">Received</a>
+                                        }
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Services Orders</span></a>
+                        </li>
+
+
+                        @if (CurrentURL.Contains("Sites"))
+                        {
+                            <li class="nav-item nav-item-submenu nav-item-expanded nav-item-open">
+                                <a href="/Sites/Index" class="nav-link active"><i class="icon-bookmark2"></i> <span>Sites</span></a>
+
+                                <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                                    <li class="nav-item">
+                                        @if (CurrentURL.Contains("/Sites/Search"))
+                                        {
+                                            <a href="/Sites/Search" class="nav-link active">Search</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="/Sites/Search" class="nav-link">Search</a>
+                                        }
+                                    </li>
+                                    <li class="nav-item">
+                                        @if (CurrentURL.Contains("/Sites/Listing"))
+                                        {
+                                            <a href="/Sites/Listing" class="nav-link active">Listing</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="/Sites/Listing" class="nav-link">Listing</a>
+                                        }
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li id="QuotesNavItem" class="nav-item nav-item-submenu">
+                                <a href="/Sites/Index" class="nav-link"><i class="icon-bookmark2"></i> <span>Sites</span></a>
+
+                                <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+
+                                    <li class="nav-item">
+                                        @if (CurrentURL.Contains("/Sites/Search"))
+                                        {
+                                            <a href="/Sites/Search" class="nav-link active">Search</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="/Sites/Search" class="nav-link">Search</a>
+                                        }
+                                    </li>
+                                    <li class="nav-item">
+                                        @if (CurrentURL.Contains("/Sites/Listing"))
+                                        {
+                                            <a href="/Sites/Listing" class="nav-link active">Listing</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="/Sites/Listing" class="nav-link">Listing</a>
+                                        }
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link"><i class="icon-user-plus"></i> <span>Admin</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Report</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link"><i class="icon-user"></i> <span>My Profile</span></a>
+                        </li>
+                        <li class="nav-item-divider"></li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link"><i class="icon-arrow-left15"></i> <span>Logout</span></a>
+                        </li>
+                        <!-- /layout -->
+
+                    </ul>
+                </div>
+                <!-- /main navigation -->
+
+            </div>
+            <!-- /sidebar content -->
+
+        </div>
+        <!-- /main sidebar -->
+        <div class="content-wrapper" style="background-color: #F5F5F5">
+            <div class="page-header">
+                <div class="page-header-content header-elements-md-inline">
+                    <div class="page-title d-flex">
+                        <h4><span class="font-weight-semibold">@ViewBag.Controller/@ViewBag.Action</span></h4>
+                        <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="content pt-0">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</body>
+</html>
