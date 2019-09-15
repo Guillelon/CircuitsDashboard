@@ -1,0 +1,156 @@
+﻿@{
+    ViewBag.Controller = "Loans";
+    ViewBag.Action = "UnderwritingDetails";
+    ViewBag.DontShowBreadCrumbs = true;
+}
+<style>
+    .checkbox label:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    .checkbox .cr {
+        position: relative;
+        display: inline-block;
+        border: 1px solid #a9a9a9;
+        border-radius: .25em;
+        width: 1.3em;
+        height: 1.3em;
+        float: left;
+        margin-right: .5em;
+    }
+
+        .checkbox .cr .cr-icon {
+            position: absolute;
+            font-size: .8em;
+            line-height: 0;
+            top: 50%;
+            left: 15%;
+        }
+
+    .checkbox label input[type="checkbox"] {
+        display: none;
+    }
+
+        .checkbox label input[type="checkbox"] + .cr > .cr-icon {
+            opacity: 0;
+        }
+
+        .checkbox label input[type="checkbox"]:checked + .cr > .cr-icon {
+            opacity: 1;
+        }
+
+        .checkbox label input[type="checkbox"]:disabled + .cr {
+            opacity: .5;
+        }
+</style>
+
+<div class="card" style="margin-top:30px">
+    <div class="card-header" style="text-align:center">
+        <h4>Underwriting Details</h4>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6" style="text-align:right;padding-top:5px">
+                        <label>Credit Score</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" />
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-6" style="text-align:right;padding-top:5px">
+                        <label># of tax liens</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" />
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-6" style="text-align:right;padding-top:5px">
+                        <label>Dollar amt of tax liens</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" />
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-6" style="text-align:right;padding-top:5px">
+                        <label>Down Payment Amt</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" />
+                    </div>
+                </div>
+                <br />
+                <br />
+                <br />
+                <div class="row">
+                    <div class="col-md-6" style="text-align:right;padding-top:5px">
+                        <label>Underwriting Decision</label>
+                    </div>
+                    <div class="col-md-6">
+                        <select class="form-control">
+                            <option>Approved</option>
+                            <option>Declined</option>
+                            <option>More info needed</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div style="text-align:center;padding-top:5px">
+                    <label>Underwriting Checklist</label>
+                    <div class="checkbox">
+                        <label style="padding-left:0px">
+                            <input type="checkbox"
+                                   name="SelectedHelps"
+                                   value="Check1"
+                                   id="HelpOtherOption" />
+                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                            Check 1
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label style="padding-left:0px">
+                            <input type="checkbox"
+                                   name="SelectedHelps"
+                                   value="Check1"
+                                   id="HelpOtherOption" />
+                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                            Check 2
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label style="padding-left:0px">
+                            <input type="checkbox"
+                                   name="SelectedHelps"
+                                   value="Check1"
+                                   id="HelpOtherOption" />
+                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                            Check 3
+                        </label>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <div class="row" style="padding-top: 18px">
+                    <div class="col-md-6" style="text-align:center">
+                        <button class="btn btn-primary">Update</button>
+                        <button class="btn btn-secondary">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

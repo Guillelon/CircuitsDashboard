@@ -107,9 +107,9 @@
 
                         <!-- Main -->
                         <li class="nav-item">
-                            @if (CurrentURL.Contains("Services"))
+                            @if (CurrentURL.Contains("Home/Dashboard"))
                             {
-                                <a href="index.html" class="nav-link active">
+                                <a href="/Home/Dashboard" class="nav-link active">
                                     <i class="icon-home4"></i>
                                     <span>
                                         Dashboard
@@ -119,7 +119,7 @@
                             }
                             else
                             {
-                                <a href="index.html" class="nav-link">
+                                <a href="/Home/Dashboard" class="nav-link">
                                     <i class="icon-home4"></i>
                                     <span>
                                         Dashboard
@@ -255,6 +255,17 @@
                         }
 
                         <li class="nav-item">
+                            @if (CurrentURL.Contains("Loans/UnderwritingDetails"))
+                            {
+                                <a href="/Loans/UnderwritingDetails" class="nav-link active"><i class="icon-coin-dollar"></i> <span>Loans</span></a>
+                            }
+                            else
+                            {
+                                <a href="/Loans/UnderwritingDetails" class="nav-link"><i class="icon-coin-dollar"></i> <span>Loans</span></a>
+                            }
+                        </li>
+
+                        <li class="nav-item">
                             <a href="#" class="nav-link"><i class="icon-user-plus"></i> <span>Admin</span></a>
                         </li>
                         <li class="nav-item">
@@ -279,14 +290,17 @@
         </div>
         <!-- /main sidebar -->
         <div class="content-wrapper" style="background-color: #F5F5F5">
-            <div class="page-header">
-                <div class="page-header-content header-elements-md-inline">
-                    <div class="page-title d-flex">
-                        <h4><span class="font-weight-semibold">@ViewBag.Controller/@ViewBag.Action</span></h4>
-                        <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+            @if (ViewBag.DontShowBreadCrumbs == null)
+            {
+                <div class="page-header">
+                    <div class="page-header-content header-elements-md-inline">
+                        <div class="page-title d-flex">
+                            <h4><span class="font-weight-semibold">@ViewBag.Controller/@ViewBag.Action</span></h4>
+                            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
             <div class="content pt-0">
                 @RenderBody()
             </div>

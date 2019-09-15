@@ -8,7 +8,7 @@ namespace CircuitsDashboard.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Dashboard()
         {
             return View();
         }
